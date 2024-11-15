@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+
+  @media screen and (max-width: $breakpoint-md) {
+    flex-direction: column;
+  }
+}
+.item {
+  margin-top: 10px;
+  @apply rounded-3xl;
+  padding: 20px;
+  background: #1d1932;
+  transition: $trn;
+}
+.input {
+  width: 30px !important;
+  padding: 10px 0px;
+  color: #fff;
+  border-bottom: 1px solid #fff;
+  background: none;
+  font-size: 32px;
+
+  &:focus {
+    outline: none;
+  }
+}
