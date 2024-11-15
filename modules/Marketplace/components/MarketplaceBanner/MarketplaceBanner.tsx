@@ -26,15 +26,15 @@ export const MarketplaceBanner: FC<MarketplaceBannerProps> = () => {
       <div className={s.banner}>
         <PreloaderImage src={banner} objectFit='cover' className={s.image} alt='' width={500} height={500} />
         <h2 className='text-xl mb-3'>
-          Мы даем возможность запустить ваш онлайн-бизнес с помощью проверенных инструментов
+         Мы даём вам возможность выбрать машину в нашем общирном каталоге, и забранировать
         </h2>
-        <p className='mb-5'>Webi Маркетплейс - площадка для покупки/продажи веб-ресурсов</p>
+        <p className='mb-5'>AutoShare - Крупный каталог автомобилей</p>
 
         <div className='flex gap-5 sm:flex-col sm:gap-[10px]'>
           <Link href={'/marketplace/products'}>
             <Btn className='md:w-full'>Каталог</Btn>
           </Link>
-          <Link href={'https://t.me/beastovsk'}>
+          <Link href={'https://t.me/Danil_smit'}>
             <Btn className='md:w-full' danger>
               Поддержка
             </Btn>

@@ -16,21 +16,25 @@ export const Header: FC<HeaderProps> = (props) => {
   const content = (
     <div className={s.content}>
       <div className={s.menu}>
-        <Tooltip title='В разработке'>
+        {/* <Tooltip title='В разработке'>
           <span className={s.link}>Marketplace</span>{' '}
-        </Tooltip>
-        {/* <Link href={'/agency'} className={s.link}>
-          Агентство
-        </Link> */}
+        </Tooltip> */}
+        <Link href={'/marketplace'} className={s.link}>
+          Ознакомиться с каталогом
+        </Link>
       </div>
-      <a href='#feedback' className='md:hidden'>
-        <Btn primary>Поддержка</Btn>
+      <a href='/marketplace/reg' className='md:hidden'>
+        <Btn primary>Register</Btn>
+      </a>
+
+      <a href='/marketplace/auth' className='md:hidden ml-5'>
+        <Btn primary>Login</Btn>
       </a>
     </div>
   );
   return (
     <div className={s.header}>
-      <Logo />
+      <h1 className='text-2xl md:hidden hover:opacity-70 transition-opacity'>AutoShare</h1>
       <div className='hidden md:flex' onClick={() => setOpen(true)}>
         <MenuOutlined className='text-xl opacity-80' />
       </div>

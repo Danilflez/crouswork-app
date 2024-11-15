@@ -39,8 +39,8 @@ export default function Page() {
       <Description />
       {/* <Marketplace /> */}
       <Consumers />
-      <Services />
-      <Portfolio />
+      {/* <Services /> */}
+      {/* <Portfolio /> */}
       <Feedback />
 
       <CalculatePrice />

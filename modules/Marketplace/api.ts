@@ -1,106 +1,97 @@
 import {getCookie} from 'cookies-next';
 
 export const Login = async (args: {email: string; password: string}) => {
-  return await fetch('https://webi-server-production.up.railway.app/api/auth/login', {
+  return await fetch('http://localhost:3005/api/auth/login', {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': 'https://webi-server-production.up.railway.app',
-      'Access-Control-Allow-Headers': 'https://webi-server-production.up.railway.app'
     },
     method: 'POST',
-    body: JSON.stringify(args)
+    body: JSON.stringify(args),
+    credentials: 'include',
   });
 };
 
 export const Register = async (args: {password: string; email: string}) => {
-  return await fetch('https://webi-server-production.up.railway.app/api/auth/register', {
+  return await fetch('http://localhost:3005/api/auth/register', {
     headers: {
       Accept: 'application/json',
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': 'https://webi-server-production.up.railway.app',
-      'Access-Control-Allow-Headers': 'https://webi-server-production.up.railway.app'
+      'Content-Type': 'application/json',   
     },
     method: 'POST',
-    body: JSON.stringify(args)
+    body: JSON.stringify(args),
+    credentials: 'include',
   });
 };
 
 export const ConfirmEmail = async (args: {confirmToken: string}) => {
-  return await fetch('https://webi-server-production.up.railway.app/api/auth/confirmEmail', {
+  return await fetch('http://localhost:3005/api/auth/confirmEmail', {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': 'https://webi-server-production.up.railway.app',
-      'Access-Control-Allow-Headers': 'https://webi-server-production.up.railway.app'
     },
     method: 'POST',
-    body: JSON.stringify(args)
+    body: JSON.stringify(args),
+    credentials: 'include',
   });
 };
 
 export const SendResetCode = async (args: {email: string}) => {
-  return await fetch('https://webi-server-production.up.railway.app/api/auth/sendResetCode', {
+  return await fetch('http://localhost:3005/api/auth/sendResetCode', {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': 'https://webi-server-production.up.railway.app',
-      'Access-Control-Allow-Headers': 'https://webi-server-production.up.railway.app'
     },
     method: 'POST',
-    body: JSON.stringify(args)
+    body: JSON.stringify(args),
+    credentials: 'include',
   });
 };
 
 export const ResetPassword = async (args: {password: string; confirmToken: string}) => {
-  return await fetch('https://webi-server-production.up.railway.app/api/auth/resetPassword', {
+  return await fetch('http://localhost:3005/api/auth/resetPassword', {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': 'https://webi-server-production.up.railway.app',
-      'Access-Control-Allow-Headers': 'https://webi-server-production.up.railway.app'
     },
     method: 'POST',
-    body: JSON.stringify(args)
+    body: JSON.stringify(args),
+    credentials: 'include',
   });
 };
 
 export const ChangeEmail = async (args: {currentEmail: string; newEmail: string; password: string}) => {
-  return await fetch('https://webi-server-production.up.railway.app/api/user/changePassword', {
+  return await fetch('http://localhost:3005/api/user/changePassword', {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
       Authorization: `Bearer ${getCookie('token')}`,
-      'Access-Control-Allow-Origin': 'https://webi-server-production.up.railway.app',
-      'Access-Control-Allow-Headers': 'https://webi-server-production.up.railway.app'
     },
     method: 'POST',
-    body: JSON.stringify(args)
+    body: JSON.stringify(args),
+    credentials: 'include',
   });
 };
 
 export const ChangePassword = async (args: {password: string; currentPassword: string}) => {
-  return await fetch('https://webi-server-production.up.railway.app/api/user/changeEmail', {
+  return await fetch('http://localhost:3005/api/user/changeEmail', {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
       Authorization: `Bearer ${getCookie('token')}`,
-      'Access-Control-Allow-Origin': 'https://webi-server-production.up.railway.app',
-      'Access-Control-Allow-Headers': 'https://webi-server-production.up.railway.app'
     },
     method: 'POST',
-    body: JSON.stringify(args)
+    body: JSON.stringify(args),
+    credentials: 'include',
   });
 };
 
 export const GetUser = async () => {
-  return await fetch('https://webi-server-production.up.railway.app/api/user/getUser', {
+  return await fetch('http://localhost:3005/api/user/getUser', {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
       Authorization: `Bearer ${getCookie('token')}`,
-      'Access-Control-Allow-Origin': 'https://webi-server-production.up.railway.app',
-      'Access-Control-Allow-Headers': 'https://webi-server-production.up.railway.app'
     },
     method: 'GET'
   }).then((data) => {

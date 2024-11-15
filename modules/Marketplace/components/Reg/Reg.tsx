@@ -51,7 +51,7 @@ export const Reg: FC<RegProps> = () => {
       <h2 className='text-5xl font-semibold'>
         <Tooltip title='Перейти на главную страницу'>
           <Link href={'/'} className='hover:opacity-70 transition-opacity'>
-            Webi
+          AutoShare
           </Link>
         </Tooltip>{' '}
         <span className='text-primary-500'>Marketplace</span>

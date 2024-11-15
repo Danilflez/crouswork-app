@@ -46,7 +46,7 @@ export const Navigation: FC<NavigationProps> = () => {
     <div className={s.container}>
       <div className='flex flex-col gap-14 md:gap-2 items-center'>
         <Link href={'/'} className='text-2xl md:hidden hover:opacity-70 transition-opacity'>
-          Webi
+        AS
         </Link>
 
         <div className='flex flex-col md:flex-row gap-10 items-center text-[#6C7AA0]'>

@@ -9,7 +9,7 @@ import {Player} from '@lottiefiles/react-lottie-player';
 import {animated, useInView} from '@react-spring/web';
 
 // @ts-ignore
-import banner from '/public/image/agency-image.json';
+import banner from '/public/image/2020_24 1.png';
 import Link from 'next/link';
 import {useStore} from '../store';
 
@@ -30,18 +30,24 @@ export const Banner: FC<BannerProps> = () => {
     <animated.div ref={ref} style={springs} className={s.container}>
       <div className='flex flex-col gap-10 items-start w-full'>
         <h1 className={s.title}>
-          Разрабатываем веб-приложения <span className='text-primary-500 ml-2'>на заказ</span>
+          Поедлставляем каталог <span className='text-primary-500 ml-2'>Автомобилей</span>
         </h1>
         <p className='text-base text-gray-500'>
-          Наше агенство занимается разработкой любых сайтов и приложений. <br /> От малых веб-сайтов до больших сервисов
+          Наш сервси даёт возможность ознакомиться и в дальнейшем забронировать <br /> разные автомобили
         </p>
-        <Link href='/agency'>
-          <Btn onClick={() => setOpenCalculatePrice(true)}>
-            <span className='flex items-center gap-3'>Рассчитать стоимость</span>
+        <Link href='/marketplace'>
+          <Btn >
+            <span className='flex items-center gap-3'>Ознакомиться</span>
           </Btn>
+          
         </Link>
       </div>
-      <Player src={banner} className='player w-[400px] md:hidden' loop autoplay />
+      <Image 
+        src={banner} 
+        alt="Автомобильный баннер" 
+        className='w-[500px] md:hidden' 
+        priority
+      />
     </animated.div>
   );
 };

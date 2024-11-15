@@ -25,7 +25,7 @@ export const Consumers: FC<ConsumersProps> = () => {
       <div className='flex flex-col gap-5'>
         <div className={s.item}>
           <h2 className='text-xl font-bold'>
-            <span className='text-primary-500 ml-2'>1.</span> Стартапы/Малый бизнес
+            <span className='text-primary-500 ml-2'>1.</span> Тем у кого нету времени для поиска своей машини мечты по многочисленным сервисам
           </h2>
           {/* <p className='mt-3 text-gray-500 '>
             - Продукт на маркетплейсе сэкономит бюджет и время на разработке сайта с 0.
@@ -35,7 +35,7 @@ export const Consumers: FC<ConsumersProps> = () => {
         </div>{' '}
         <div className={s.item}>
           <h2 className='text-xl font-bold'>
-            <span className='text-primary-500 ml-2'>2.</span> Средний бизнес
+            <span className='text-primary-500 ml-2'>2.</span> Тем кто ещё не определился с выбором, и хочет осмотреть множется разных машин
           </h2>
           {/* <p className='mt-3 text-gray-500 '>
             - Требуется расширение функциональности для текущего проекта или хотите новый? <br /> Предоставим
@@ -45,7 +45,7 @@ export const Consumers: FC<ConsumersProps> = () => {
         <div className={s.item}>
           <h2 className='text-xl font-bold'>
             {' '}
-            <span className='text-primary-500 ml-2'>3.</span> Любой бизнес связанный с веб-разработкой
+            <span className='text-primary-500 ml-2'>3.</span> Каждому кто желает удобно купить автомобиль!
           </h2>
           {/* <p className='mt-3 text-gray-500 '>
             - Предоставим проекты и модули для дальнейшей перепродажи или использования в личных заказах{' '}
