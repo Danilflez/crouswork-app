@@ -30,12 +30,6 @@ export const Navigation: FC<NavigationProps> = () => {
       tokenRequired: false
     },
     {
-      label: 'Профиль',
-      icon: <UserOutlined className='w-full justify-center text-2xl cursor-pointer' color='#111' />,
-      href: '/marketplace/profile/',
-      tokenRequired: true
-    },
-    {
       label: 'Настройки',
       icon: <SettingOutlined className='w-full justify-center text-2xl cursor-pointer' color='#111' />,
       href: '/marketplace/profile/settings/',
@@ -45,7 +39,7 @@ export const Navigation: FC<NavigationProps> = () => {
   return (
     <div className={s.container}>
       <div className='flex flex-col gap-14 md:gap-2 items-center'>
-        <Link href={'/'} className='text-2xl md:hidden hover:opacity-70 transition-opacity'>
+        <Link href={'/marketplace/'} className='text-2xl md:hidden hover:opacity-70 transition-opacity'>
         AS
         </Link>
 

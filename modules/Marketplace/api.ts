@@ -101,13 +101,11 @@ export const GetUser = async () => {
 };
 
 export const CreateService = async (args) => {
-  return await fetch('https://webi-server-production.up.railway.app/api/service/createService', {
+  return await fetch('http://localhost:3005/api/car/createCar', {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
       Authorization: `Bearer ${getCookie('token')}`,
-      'Access-Control-Allow-Origin': 'https://webi-server-production.up.railway.app',
-      'Access-Control-Allow-Headers': 'https://webi-server-production.up.railway.app'
     },
     method: 'POST',
     body: JSON.stringify(args)
@@ -115,13 +113,11 @@ export const CreateService = async (args) => {
 };
 
 export const UpdateService = async (args) => {
-  return await fetch('https://webi-server-production.up.railway.app/api/service/updateService', {
+  return await fetch('/api/service/updateService', {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
       Authorization: `Bearer ${getCookie('token')}`,
-      'Access-Control-Allow-Origin': 'https://webi-server-production.up.railway.app',
-      'Access-Control-Allow-Headers': 'https://webi-server-production.up.railway.app'
     },
     method: 'POST',
     body: JSON.stringify(args)
@@ -129,13 +125,11 @@ export const UpdateService = async (args) => {
 };
 
 export const RemoveService = async (args) => {
-  return await fetch('https://webi-server-production.up.railway.app/api/service/removeService', {
+  return await fetch('/api/service/removeService', {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
       Authorization: `Bearer ${getCookie('token')}`,
-      'Access-Control-Allow-Origin': 'https://webi-server-production.up.railway.app',
-      'Access-Control-Allow-Headers': 'https://webi-server-production.up.railway.app'
     },
     method: 'POST',
     body: JSON.stringify(args)
@@ -144,13 +138,11 @@ export const RemoveService = async (args) => {
 
 export const GetServiceById = async ({serviceId}) => {
   return await fetch(
-    `https://webi-server-production.up.railway.app/api/service/getServiceById?serviceId=${serviceId}`,
+    `http://localhost:3005/api/car/getCarById?id=${serviceId}`,
     {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': 'https://webi-server-production.up.railway.app',
-        'Access-Control-Allow-Headers': 'https://webi-server-production.up.railway.app'
       },
       method: 'GET'
     }
@@ -160,22 +152,27 @@ export const GetServiceById = async ({serviceId}) => {
   });
 };
 
-export const GetServices = async ({name, priceFrom, priceTo}: {name: string; priceFrom: string; priceTo: string}) => {
+export const GetAllCars = async ({ title = '', priceFrom = "", priceTo = "" }) => {
+  const query = new URLSearchParams({ title, priceFrom: priceFrom.toString(), priceTo: priceTo.toString() }).toString();
+
   return await fetch(
-    `https://webi-server-production.up.railway.app/api/service/getServices?name=${name}&priceFrom=${priceFrom}&priceTo=${priceTo}`,
+    `http://localhost:3005/api/car/getAllCars?${query}`,
     {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': 'https://webi-server-production.up.railway.app',
-        'Access-Control-Allow-Headers': 'https://webi-server-production.up.railway.app'
       },
-      method: 'GET'
+      method: 'GET',
     }
-  ).then((data) => {
-    if (!data.ok) return;
-    return data.json();
-  });
+  )
+    .then((data) => {
+      if (!data.ok) throw new Error(`Ошибка: ${data.status}`);
+      return data.json();
+    })
+    .catch((error) => {
+      console.error('Ошибка при запросе:', error.message);
+      throw error;
+    });
 };
 
 export const GetPersonalServices = async () => {

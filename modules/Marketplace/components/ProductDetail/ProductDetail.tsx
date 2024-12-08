@@ -14,20 +14,20 @@ export const ProductDetail: FC<ProductDetailProps> = () => {
   const searchParams = useSearchParams();
   const id = searchParams.get('id');
   const {data, isLoading, isSuccess} = useQuery(['product', id], () => GetServiceById({serviceId: id}));
-  const [service, setService] = useState(null);
+  const [car, setService] = useState(null);
 
   useEffect(() => {
     if (!isSuccess) return;
 
-    setService(data?.service);
+    setService(data?.car);
   }, [isSuccess, isLoading, data]);
 
   return (
     <div className={s.container}>
       {isSuccess ? (
         <div className='flex flex-col gap-10'>
-          <ProductBanner title={service?.title} price={service?.price} images={service?.images} />
-          <ProductDescription productInfo={service} />
+          <ProductBanner title={car?.title} price={car?.price} images={car?.images} />
+          <ProductDescription productInfo={car} />
         </div>
       ) : (
         <div className='flex justify-center items-center w-full h-full'>

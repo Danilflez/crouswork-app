@@ -5,25 +5,27 @@ import s from './PopularContent.module.scss';
 
 import {ProductsList} from '../ProductsList/ProductsList';
 import {useMutation, useQuery} from 'react-query';
-import {GetServices} from '../../api';
+import {GetAllCars} from '../../api';
 import {customNotification} from '@/src/helpers/customNotification';
 
 interface PopularContentProps {
   title: string;
+  priceFrom: number;
+  priceTo: number;
 }
 
 export const PopularContent: FC<PopularContentProps> = ({title, ...props}) => {
   const [products, setProducts] = useState([]);
-  const {mutate, isLoading} = useMutation(GetServices);
+  const {mutate, isLoading} = useMutation(GetAllCars);
 
   useEffect(() => {
-    mutate(
-      {name: '', priceFrom: '0', priceTo: '99999999'},
+    return mutate(
+      { title: '', priceFrom: '', priceTo:'' },
       {
         onSuccess: (data) => {
-          if (!data?.services) return;
+          if (!data?.cars) return;
 
-          setProducts(data?.services.reverse().slice(0, 6));
+          setProducts(data?.cars);
         }
       }
     );

@@ -28,68 +28,36 @@ export const ProductDescription: FC<ProductDescriptionProps> = ({productInfo}) =
           </p>
         </div>
       </div>
+      <div className={s.wrapper}>
+        <div>
+          <h2 className='text-lg mb-3'>Характеристики</h2>
+          <p className='text-base text-[#6C7AA0]'>
+          Марка автомобиля  :{productInfo?.brand ? parse(productInfo?.brand) : null}
+          </p>
+          <p className='text-base text-[#6C7AA0]'>
+          Модель автомобиля
+          :{productInfo?.model ? parse(productInfo?.model) : null}
+          </p>
+          <p className='text-base text-[#6C7AA0]'>
+          Тип кузова  :{productInfo?.body_type ? parse(productInfo?.body_type) : null}
+          </p>
+          <p className='text-base text-[#6C7AA0]'>
+          Тип топлива  :{productInfo?.engine_type ? parse(productInfo?.engine_type) : null}
+          </p>
+          <p className='text-base text-[#6C7AA0]'>
+          Тип трансмиссии  :{productInfo?.transmission ? parse(productInfo?.transmission) : null}
+          </p>
+          <p className='text-base text-[#6C7AA0]'>
+          Тип привода  :{productInfo?.drivetrain ? parse(productInfo?.drivetrain) : null}
+          </p>
+        </div>
+      </div>
       <div className='flex flex-col gap-10'>
         <div>
-          <h2 className='text-lg mb-3 md:flex gap-3'>
-            Онлайн-показ
-            <span>
-              <Tooltip title={message}>
-                <CopyOutlined
-                  className='text-lg cursor-pointer text-[#6F4FF2] hover:opacity-70 transition-[all]'
-                  color='#111'
-                  onClick={() => {
-                    navigator.clipboard.writeText(productInfo?.preview_link);
-                    setMessage('Ссылка скопирована');
-
-                    setTimeout(() => {
-                      setMessage('Копировать ссылку');
-                    }, 5000);
-                  }}
-                />
-              </Tooltip>
-            </span>
-          </h2>
-          <div className='flex items-center gap-3'>
-            <Link
-              target='_blank'
-              href={productInfo?.preview_link || ''}
-              className='text-[#6C7AA0] hover:opacity-70 transition-opacity cursor-pointer'
-            >
-              {productInfo?.preview_link}
-            </Link>
-          </div>
         </div>
-        <div>
-          <h2 className='text-lg mb-3 md:flex gap-3'>
-            Видео
-            <span>
-              <Tooltip title={message}>
-                <CopyOutlined
-                  className='text-lg cursor-pointer text-[#6F4FF2] hover:opacity-70 transition-[all]'
-                  color='#111'
-                  onClick={() => {
-                    navigator.clipboard.writeText(productInfo?.video_link);
-                    setMessage('Ссылка скопирована');
-
-                    setTimeout(() => {
-                      setMessage('Копировать ссылку');
-                    }, 5000);
-                  }}
-                />
-              </Tooltip>
-            </span>
-          </h2>
-          <div className='flex items-center gap-3'>
-            <Link
-              target='_blank'
-              href={productInfo?.video_link || ''}
-              className='text-[#6C7AA0] hover:opacity-70 transition-opacity cursor-pointer'
-            >
-              {productInfo?.video_link}
-            </Link>
-          </div>
+        <div>        
         </div>
-        <Btn className='w-max sm:w-full'>Добавить в корзину</Btn>
+        {/* <Btn className='w-max sm:w-full'>Добавить в корзину</Btn> */}
       </div>
     </div>
   );

@@ -61,54 +61,30 @@ export const ProductsList: FC<ProductsListProps> = ({title, isLoading, productsL
 
       <div className={s.list}>
         {productsList?.length ? (
-          productsList.map(({owner_id, id, title, price, images}) => (
-            <Link href={`/marketplace/product?id=${id}`} className={s.item} key={id}>
-              <PreloaderImage
-                src={images[0]}
-                objectFit='cover'
-                alt=''
-                width={300}
-                height={500}
-                className='h-[170px] w-full object-cover md:w-full rounded-3xl'
-              />
-
-              <h2 className='my-5 text-lg font-medium'>
-                {title}
-                {profileId == owner_id ? (
-                  <Link href={`/marketplace/product/update?id=${id}`}>
-                    <EditOutlined className='text-[#6F4FF2] ml-3 hover:opacity-70 transition-opacity' />
-                  </Link>
-                ) : null}
-              </h2>
-
-              <div className='flex justify-end mb-5'>
-                <span className='flex flex-col items-end'>
-                  Цена: <p className='text-[#6F4FF2]'>{formatProductPrice(price)}</p>
-                </span>
-              </div>
-
-              {owner_id != profileId ? (
-                <Link href={`/marketplace/purchase?serviceId=${id}`}>
-                  <Btn className='w-full mt-auto'>Оформить заказ</Btn>
-                </Link>
-              ) : (
-                <Link href={`/marketplace/product/update?${id}`}>
-                  <Btn className='w-full'>Изменить сервис</Btn>
-                </Link>
-              )}
-            </Link>
-          ))
-        ) : isLoading ? (
-          <>
-            {skeletonCard}
-            {skeletonCard}
-            {skeletonCard}
-          </>
-        ) : (
-          <div className='w-full bg-[#1D1932] py-10 rounded-3xl'>
-            <h2 className='flex justify-center'>Список пуст</h2>
-          </div>
-        )}
+  productsList.map(({ id, brand, model, price, images}) => (
+    <Link
+      key={id}
+      href={`/marketplace/product?id=${id}`}
+      className={s.item}
+    >
+      <div className={s.image}>
+        <PreloaderImage
+          src={images?.[0] || '/placeholder.png'}
+          alt={brand}
+          width={300}
+          height={200}
+        />
+      </div>
+      <div className={s.details}>
+        <h3>{brand}</h3>
+        <h3>{model}</h3>
+        <p>{formatProductPrice(price)}</p>
+      </div>
+    </Link>
+  ))
+) : (
+  <p className={s.noItems}>Нет доступных товаров.</p>
+)}
       </div>
     </animated.div>
   );

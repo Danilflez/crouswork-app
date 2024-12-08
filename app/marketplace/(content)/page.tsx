@@ -6,7 +6,7 @@ export default async function Page() {
   return (
     <>
       <MarketplaceBanner />
-      <PopularContent title='Последние добавления' />{' '}
+      <PopularContent title="Последние добавления" priceFrom={0} priceTo={1000000} />
     </>
   );
 }

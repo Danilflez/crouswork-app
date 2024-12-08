@@ -2,30 +2,30 @@
 
 import {useEffect, useState} from 'react';
 import {useMutation} from 'react-query';
-import {GetServices} from '../../api';
+import {GetAllCars} from '../../api';
 import {ProductsList} from '../ProductsList/ProductsList';
 import {SearchBar} from '../SearchBar/SearchBar';
 
 export const SearchProducts = () => {
-  const {mutate, isLoading} = useMutation(GetServices);
+  const {mutate, isLoading} = useMutation(GetAllCars);
   const [services, setServices] = useState([]);
 
-  const handleFilters = (value: {name: string; priceFrom: string; priceTo: string}) => {
+  const handleFilters = (value: {title: string; priceFrom: string; priceTo: string}) => {
     console.log(value);
     mutate(
       {...value},
       {
         onSuccess: (data) => {
-          if (!data?.services) return;
+          if (!data?.cars) return;
 
-          setServices(data?.services);
+          setServices(data?.cars);
         }
       }
     );
   };
 
   useEffect(() => {
-    handleFilters({name: '', priceFrom: '', priceTo: ''});
+    handleFilters({title: '', priceFrom: '', priceTo: ''});
   }, []);
 
   return (

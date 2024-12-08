@@ -25,20 +25,15 @@ export const Header: FC<HeaderProps> = () => {
         </Badge>
       </Link> */}
       {token ? (
-        <Link href='/marketplace/create'>
-          <Btn>Добавить товар</Btn>
-        </Link>
-      ) : null}
-      {token ? (
         <div className='flex gap-10 items-end'>
-          <Link
+          {/* <Link
             href={'/marketplace/profile'}
             className='bg-[#6F4FF2] w-10 h-10 rounded-full transition-opacity hover:opacity-70'
           >
             <h2 className='text-xl h-full text-white flex justify-center items-center'>
               {email ? email[0].toUpperCase() : null}
             </h2>
-          </Link>
+          </Link> */}
         </div>
       ) : (
         <Link href={'/marketplace/auth'}>
