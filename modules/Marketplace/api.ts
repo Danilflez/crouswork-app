@@ -16,7 +16,7 @@ export const Register = async (args: {password: string; email: string}) => {
   return await fetch('http://localhost:3005/api/auth/register', {
     headers: {
       Accept: 'application/json',
-      'Content-Type': 'application/json',   
+      'Content-Type': 'application/json',
     },
     method: 'POST',
     body: JSON.stringify(args),
@@ -152,11 +152,9 @@ export const GetServiceById = async ({serviceId}) => {
   });
 };
 
-export const GetAllCars = async ({ title = '', priceFrom = "", priceTo = "" }) => {
-  const query = new URLSearchParams({ title, priceFrom: priceFrom.toString(), priceTo: priceTo.toString() }).toString();
-
+export const GetAllCars = async ({title, priceFrom, priceTo, type}) => {
   return await fetch(
-    `http://localhost:3005/api/car/getAllCars?${query}`,
+    `http://localhost:3005/api/car/getAllCars?title=${title}&priceFrom=${priceFrom}&priceTo=${priceTo}&type=${type}`,
     {
       headers: {
         Accept: 'application/json',

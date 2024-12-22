@@ -48,7 +48,10 @@
   color: rgba(255, 255, 255, 0.776) !important;
   // padding-top: 5px !important;
 }
-
+.ant-select-selection-item {
+  display: flex;
+  align-items: center;
+}
 .ant-upload-list-item {
   border: 1px solid #424242 !important;
 }

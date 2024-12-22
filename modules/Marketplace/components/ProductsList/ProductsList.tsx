@@ -72,12 +72,13 @@ export const ProductsList: FC<ProductsListProps> = ({title, isLoading, productsL
           src={images?.[0] || '/placeholder.png'}
           alt={brand}
           width={300}
-          height={200}
+          height={300}
+          className='h-full rounded-xl'
+          objectFit='cover'
         />
       </div>
       <div className={s.details}>
-        <h3>{brand}</h3>
-        <h3>{model}</h3>
+        <h3><span className='font-bold'>{brand}</span> {model}</h3>
         <p>{formatProductPrice(price)}</p>
       </div>
     </Link>

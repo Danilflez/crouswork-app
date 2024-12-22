@@ -45,12 +45,12 @@ function AntdThemeProvider({children}: {children: React.ReactNode}) {
 
     mutate({} as any, {
       onSuccess: (data) => {
-        if (!data?.user) {
-          deleteCookie('token');
-          localStorage.removeItem('email');
-          localStorage.removeItem('id');
-          return router.push('/marketplace/auth');
-        }
+        // if (!data?.user) {
+        //   deleteCookie('token');
+        //   localStorage.removeItem('email');
+        //   localStorage.removeItem('id');
+        //   return router.push('/marketplace/auth');
+        // }
 
         const {email, id} = data.user;
         localStorage.setItem('email', email);

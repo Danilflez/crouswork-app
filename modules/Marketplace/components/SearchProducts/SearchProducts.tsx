@@ -10,10 +10,10 @@ export const SearchProducts = () => {
   const {mutate, isLoading} = useMutation(GetAllCars);
   const [services, setServices] = useState([]);
 
-  const handleFilters = (value: {title: string; priceFrom: string; priceTo: string}) => {
-    console.log(value);
+  const handleFilters = (value: {title: string; priceFrom: string; priceTo: string, type: number}) => {
+
     mutate(
-      {...value},
+      {...value, priceFrom: value.priceFrom ?? 0, priceTo: value.priceTo ?? 0},
       {
         onSuccess: (data) => {
           if (!data?.cars) return;
@@ -25,13 +25,13 @@ export const SearchProducts = () => {
   };
 
   useEffect(() => {
-    handleFilters({title: '', priceFrom: '', priceTo: ''});
+    handleFilters({title: '', priceFrom: '', priceTo: '', type: 0});
   }, []);
 
   return (
     <div>
       <SearchBar handleFilters={handleFilters} />
-      <ProductsList title='Список сервисов' productsList={services} isLoading={isLoading} />
+      <ProductsList title='Список авто' productsList={services} isLoading={isLoading} />
     </div>
   );
 };
