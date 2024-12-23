@@ -1,5 +1,5 @@
 export const SendContact = async (args) => {
-  return await fetch('https://webi-server-production.up.railway.app/api/agency/sendContact', {
+  return await fetch('http://localhost:3005/api/auth/supportRequest', {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json'

@@ -61,7 +61,7 @@ export const ResetPassword = async (args: {password: string; confirmToken: strin
 };
 
 export const ChangeEmail = async (args: {currentEmail: string; newEmail: string; password: string}) => {
-  return await fetch('http://localhost:3005/api/user/changePassword', {
+  return await fetch('http://localhost:3005/api/user/changeEmail', {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
@@ -74,7 +74,7 @@ export const ChangeEmail = async (args: {currentEmail: string; newEmail: string;
 };
 
 export const ChangePassword = async (args: {password: string; currentPassword: string}) => {
-  return await fetch('http://localhost:3005/api/user/changeEmail', {
+  return await fetch('http://localhost:3005/api/user/changePassword', {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',

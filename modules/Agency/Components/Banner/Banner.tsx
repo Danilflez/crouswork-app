@@ -30,10 +30,10 @@ export const Banner: FC<BannerProps> = () => {
     <animated.div ref={ref} style={springs} className={s.container}>
       <div className='flex flex-col gap-10 items-start w-full'>
         <h1 className={s.title}>
-          Поедлставляем каталог <span className='text-primary-500 ml-2'>Автомобилей</span>
+        Предоставляем каталог <span className='text-primary-500 ml-2'>Автомобилей</span>
         </h1>
         <p className='text-base text-gray-500'>
-          Наш сервси даёт возможность ознакомиться и в дальнейшем забронировать <br /> разные автомобили
+        Наш сервис даёт возможность ознакомиться и в дальнейшем забронировать <br /> различные автомобили
         </p>
         <Link href='/marketplace'>
           <Btn >

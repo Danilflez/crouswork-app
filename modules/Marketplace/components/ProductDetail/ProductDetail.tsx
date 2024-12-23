@@ -7,6 +7,7 @@ import {ProductBanner} from '../ProductBanner/ProductBanner';
 import {ProductDescription} from '../ProductDescription/ProductDescription';
 import s from './ProductDetail.module.scss';
 import {useSearchParams} from 'next/navigation';
+import {FeedbackCar} from '@/modules/Agency/Components/Feedback/FeedbackCar';
 
 interface ProductDetailProps {}
 
@@ -28,6 +29,7 @@ export const ProductDetail: FC<ProductDetailProps> = () => {
         <div className='flex flex-col gap-10'>
           <ProductBanner title={car?.title} price={car?.price} images={car?.images} />
           <ProductDescription productInfo={car} />
+          <FeedbackCar />
         </div>
       ) : (
         <div className='flex justify-center items-center w-full h-full'>
