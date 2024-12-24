@@ -4,8 +4,6 @@ import {Metadata} from 'next';
 import ClientProvider from '@/modules/ClientProdider';
 import React from 'react';
 import Head from 'next/head';
-
-import YandexMetrika from 'next-yandex-metrika';
 import Script from 'next/script';
 
 const gilroy = localFont({
@@ -84,9 +82,10 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang='en'>
       <Head>
-        <meta name='yandex-verification' content='c4492d1cc4639f2c' />
-        <YandexMetrika yid={94315700} clickmap={true} trackLinks={true} accurateTrackBounce={true} webvisor={true} />
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+        <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+       <Script src="https://unpkg.com/leaflet/dist/leaflet.js"></Script>
+
       </Head>
       <body>
         <main className={gilroy.className}>

@@ -19,17 +19,7 @@ export const Header: FC<HeaderProps> = (props) => {
         {/* <Tooltip title='В разработке'>
           <span className={s.link}>Marketplace</span>{' '}
         </Tooltip> */}
-        <Link href={'/marketplace'} className={s.link}>
-          Ознакомиться с каталогом
-        </Link>
       </div>
-      <a href='/marketplace/reg' className='md:hidden'>
-        <Btn primary>Register</Btn>
-      </a>
-
-      <a href='/marketplace/auth' className='md:hidden ml-5'>
-        <Btn primary>Login</Btn>
-      </a>
     </div>
   );
   return (

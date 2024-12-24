@@ -21,39 +21,43 @@ export const Services: FC<ServicesProps> = () => {
     {rootMargin: '-20% 0%'}
   );
 
-  const servicesList = [
-    {
-      title: 'Подготовка',
-      description:
-        'После обсуждения деталей с заказчиком - мы внимательно изучаем требования и планируемся строго по фичам',
-      image: dev
-    },
-    {
-      title: 'Реализация',
-      description: 'Следуя нашему планированию - разрабатываем по дизайну и постановке',
-      image: design
-    },
-    {
-      title: 'Правки и дополнения',
-      description: 'Демонстрируем проект заказчику и вносим коррективы, если таковые имеются',
-      image: support
-    }
-  ];
+  const Contacts: FC = () => (
+    <div className={s.contacts}>
+       <h3 className="text-2xl font-bold text-primary-500">Контакты</h3>
+      <p className="mt-2">Адрес: улица имени А.П. Шехурдина, 2</p>
+      <p className="mt-2">Телефон: +7 123 456 7890</p>
+      <p className="mt-2">Электронная почта: example@example.com</p>
+    </div>
+  );
+
+  const WorkHours: FC = () => (
+    <div className={s.workHours}>
+      <h3 className="text-2xl font-bold text-primary-500">Время работы</h3>
+      <p className="mt-2">Понедельник: 9:00 - 18:00</p>
+      <p className="mt-2">Вторник: 9:00 - 18:00</p>
+      <p className="mt-2">Среда: 9:00 - 18:00</p>
+      <p className="mt-2">Четверг: 9:00 - 18:00</p>
+      <p className="mt-2">Пятница: 9:00 - 18:00</p>
+      <p className="mt-2">Суббота: 10:00 - 15:00</p>
+      <p className="mt-2">Воскресенье: Выходной</p>
+    </div>
+  );
+
+  const SohialMedia: FC = () => (
+    <div className={s.workHours}>
+      <h3 className="text-2xl font-bold text-primary-500">Социальные сети</h3>
+      <p className="mt-2">Telegram: https://t.me/username</p>
+      <p className="mt-2">WhatsUp: https://wa.me/1234567890</p>
+      <p className="mt-2">Вконтакте: https://vk.com/username</p>
+    </div>
+  );
+
   return (
     <animated.div ref={ref} style={springs} className={s.container} id='services'>
-      <h1 className={s.title}>
-        Как происходит процесс <span className='text-primary-500'>разработки</span> сервиса
-      </h1>
       <div className={s.list}>
-        {servicesList.map(({title, description, image}, i) => (
-          <div className='flex flex-grow flex-col items-center' key={title}>
-            {/* <PreloaderImage src={image} alt='' width={50} height={50} /> */}
-            <h1 className='text-primary-500 text-xl font-bold'>
-              {i + 1}. <span className='text-white'>{title}</span>
-            </h1>
-            <p className='text-gray-500 mt-3'>{description}</p>
-          </div>
-        ))}
+      <Contacts />
+      <WorkHours />
+      <SohialMedia />
       </div>
     </animated.div>
   );
